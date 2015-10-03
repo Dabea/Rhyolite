@@ -1,0 +1,4 @@
+<h1> This is the Store View</h1>
+<ul ng-repeat="category in categories"> <strong>{{ category.title }}</strong>
+    <li ng-repeat="produt in products">{{ produt.title }} {{ produt.id }} <span ng-repeat="image in produt.images"> <img  width="250" height="250" ng-src="{{ image.url.http }}" </span> </li>
+</ul>
