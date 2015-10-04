@@ -8,8 +8,20 @@
  * Controller of the testprojectApp
  */
 angular.module('testprojectApp')
-  .controller('StoreCtrl', function ($scope ,categories, products) {
+  .controller('StoreCtrl', function ($scope ,categories, products, $location) {
+    $scope.filters = {};
     $scope.categories = categories;
     $scope.products = products;
-    console.log(products);
+
+
+    $scope.filterProductsByCategory = function(categoryPram) {
+        $scope.search = categoryPram;
+
+        };
+    $scope.isActive = function(currentPath){
+        if(currentPath == $location.path()){
+            return true;
+        }
+    };
+
   });

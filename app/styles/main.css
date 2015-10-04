@@ -81,3 +81,42 @@ body {
     border-bottom: 0;
   }
 }
+/********
+* Location Selectors
+********/
+.currentPage{
+    background-color: ;
+}
+.currentCatagory{
+    border-left: #ac2925 5px solid ;
+}
+
+/*********
+* Fade out Animation for store view
+**********/
+.fade{
+    opacity: 1;
+    width: auto;
+}
+.fade.ng-enter{
+     transition: ease 1s;
+     opacity: 0;
+    width: 0%;
+
+ }
+.fade.ng-enter-active{
+    opacity: 1;
+    width: 100%;
+}
+.fade.ng-leave{
+    transition: ease 1s;
+    opacity: 1;
+    width: 100%;
+
+}
+.fade.ng-leave-active{
+    opacity: 0;
+    width: 0%;
+    padding: 0;
+    margin: 0;
+}

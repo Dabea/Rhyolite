@@ -1,4 +1,22 @@
-<h1> This is the Store View</h1>
-<ul ng-repeat="category in categories"> <strong>{{ category.title }}</strong>
-    <li ng-repeat="produt in products">{{ produt.title }} {{ produt.id }} <span ng-repeat="image in produt.images"> <img  width="250" height="250" ng-src="{{ image.url.http }}" </span> </li>
-</ul>
+<div class="col-xs-2 text-center" >
+    <h1>Categories</h1>
+    <ul>
+        <li style="list-style: none" ng-class="{ 'currentCatagory' : (search == category.title) }"><a <a ng-click="filterProductsByCategory()" >All category <a></a></li>
+        <li ng-repeat="category in categories" style="list-style: none;"  ng-class="{ 'currentCatagory' : (search == category.title) }"  > <a ng-click="filterProductsByCategory(category.title)"  >{{ category.title }}</a> </li>
+    </ul>
+</div>
+ <div class="col-xs-10">
+     <h1> Featured Products</h1>
+
+     <ul> <strong>{{ category.title }}</strong>
+         <li  ng-repeat="produt in products | filter:search " ng-animate="fade" class="fade" style="list-style: none">
+             <a href="#/product/{{produt.slug}}">
+             <div class="col-xs-6"   ">
+                 <span  class="col-xs-12"> <img  width="250" height="250" ng-src="{{ produt.images[0].url.http }}" </span>
+                 <p>{{ produt.title }} </p>
+                 <p>from <strong>{{ produt.price.value}}</strong></p>
+                 <p>{{produt.category.value}}</p>
+             </div></a>
+         </li>
+     </ul>
+</div>

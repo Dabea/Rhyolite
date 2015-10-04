@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var testProjectApp = angular
   .module('testprojectApp', [
     'testprojectApp.moltin',
     'ngAnimate',
@@ -17,8 +17,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch'
-  ])
-  .config(function ($routeProvider) {
+  ]);
+
+testProjectApp.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -60,7 +61,7 @@ angular
         controller: 'CategoryCtrl',
         controllerAs: 'category'
       })
-      .when('/product/:id', {
+      .when('/product/:slug', {
         templateUrl: 'views/product.html',
         controller: 'ProductCtrl',
         controllerAs: 'product',
@@ -74,23 +75,71 @@ angular
                     });
                     return deferred.promise;
                 },
-                product: function($q, $route, MoltinAuth) {
+                products: function($q, MoltinAuth, $route) {
                     var deferred = $q.defer();
                     MoltinAuth.then(function(moltin) {
-                        moltin.Product.Get($route.current.params.id, function(product) {
+                        moltin.Product.Find( { slug: $route.current.params.slug } , function(product) {
                             deferred.resolve(product);
                         });
-                    })
+                    });
                     return deferred.promise;
+                },
+                moltin: function(MoltinAuth){
+                    return MoltinAuth;
                 }
             }
       })
       .when('/cart', {
         templateUrl: 'views/cart.html',
         controller: 'CartCtrl',
-        controllerAs: 'cart'
+        controllerAs: 'cart',
+            resolve: {
+                categories: function($q, MoltinAuth) {
+                    var deferred = $q.defer();
+                    $q.when(MoltinAuth).then(function(moltin){
+                        moltin.Category.List(null, function(categories){
+                            deferred.resolve(categories);
+                        });
+                    });
+                    return deferred.promise;
+                },
+                products: function($q, MoltinAuth, $route) {
+                    var deferred = $q.defer();
+                    MoltinAuth.then(function(moltin) {
+                        moltin.Product.Find( { slug: $route.current.params.slug } , function(product) {
+                            deferred.resolve(product);
+                        });
+                    });
+                    return deferred.promise;
+                },
+                cartObject: function ($q, MoltinAuth){
+                    var deferred = $q.defer();
+                    $q.when(MoltinAuth).then(function(moltin){
+                        moltin.Cart.Contents(function(cart){
+                            console.log(cart);
+                            deferred.resolve(cart);
+                        });
+                    });
+                    return deferred.promise;
+                }
+            }
       })
       .otherwise({
         redirectTo: '/'
       });
   });
+
+
+/*app.filter('filterBycatogories', function () {
+    return function (items, catogories) {
+        var filtered = [];
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            if (item == catogories)) {
+                filtered.push(item);
+            }
+        }
+        return filtered;
+    };
+});
+    */
