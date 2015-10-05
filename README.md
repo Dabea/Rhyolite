@@ -1,10 +1,9 @@
 # Rhyolite
-This is a sample e-commers site 
+This is a sample ecommerce site
 
 
 ## Changes
-Currently the router is trying to reslove promisies This function should be moved out of a Reslove this will make the pages change load first vs waiting for all the infomation to be sent. 
-
+Currently the router is trying to resolve promises This function should be moved out of a Resolve this will make the pages change load first vs. waiting for all the information to be sent.
 
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
