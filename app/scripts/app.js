@@ -116,7 +116,6 @@ testProjectApp.config(function ($routeProvider) {
                     var deferred = $q.defer();
                     $q.when(MoltinAuth).then(function(moltin){
                         moltin.Cart.Contents(function(cart){
-                            console.log(cart);
                             deferred.resolve(cart);
                         });
                     });

@@ -12,6 +12,7 @@ angular.module('testprojectApp')
         $scope.categories = categories;
         $scope.products = products[0];
         $scope.cartData = cartObject;
+        console.log($scope.cartData);
 
 
 
