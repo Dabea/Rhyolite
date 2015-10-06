@@ -8,4 +8,4 @@ Currently the router is trying to resolve promises This function should be moved
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.12.1.
->>>>>>> 8d5fef0195eb88dccdf78dfceb76259b98357331
+
