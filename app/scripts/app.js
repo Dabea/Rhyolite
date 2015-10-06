@@ -125,6 +125,9 @@ testProjectApp.config(function ($routeProvider) {
                         });
                     });
                     return deferred.promise;
+                },
+                moltin: function(MoltinAuth){
+                    return MoltinAuth;
                 }
             }
       })

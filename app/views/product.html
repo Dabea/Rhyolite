@@ -14,9 +14,10 @@
         <p ng-class="" class="h2">{{ products.price.value }} </p>
         <p>{{products.description}}</p>
         <p>Quanity Aviable <span style="color: darkgreen" >{{products.stock_level}}</span></p>
-        <div> <label> Quantity</label><input type="number" value="1" min="1" max="{{products.stock_level}}"></div>
+        <!-- There seems to be issues with adding diffrent quanties..
+        <div> <label> Quantity</label><input ng-model="quantity.input" ng-init="quantity.input =  1" type="number" value="1" min="1" max="{{products.stock_level}}"></div> -->
         <!-- Add to Cart -->
-        <button ng-if="!addingItemStatus" ng-click="addItem( '{{products.id}}' ,1)" class="btn btn-success">Add to Cart</button>
+        <button ng-if="!addingItemStatus" ng-click="addItem( '{{products.id}}' ,'1')" class="btn btn-success">Add to Cart</button>
         <!-- Adding Item -->
         <button ng-if="addingItemStatus == 'Adding Item to Cart...'" class="btn btn-info">{{addingItemStatus}}</button>
         <!-- Item Added -->

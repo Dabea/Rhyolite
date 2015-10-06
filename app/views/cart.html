@@ -1,5 +1,5 @@
 <p>This is the cart view.</p>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" ">
         <tr>
             <th class="visible-lg visible-md">Preview</th>
             <th>Item</th>
@@ -14,6 +14,7 @@
             <td>{{product.quantity}}</td>
             <td>{{product.price}}</td>
             <td>{{product.totals.post_discount.formatted.without_tax}} </td>
+            <td><a class="btn" style="color: #c12e2a" ng-click="removeItem('{{key}}')">X</a></td>
         </tr>
         <tr>
             <td class="visible-lg visible-md"></td>
@@ -25,5 +26,5 @@
         </tbody>
     </table>
 
-<button class="btn btn-success  col-xs-offset-11">Check Out</button>
+<button class="btn btn-success  col-xs-offset-11" >Check Out</button>
 

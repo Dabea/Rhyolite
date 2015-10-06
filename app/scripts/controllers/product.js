@@ -26,7 +26,7 @@ angular.module('testprojectApp')
 
             $timeout(function () {
                 $scope.addingItemStatus = null;
-            }, 3000);
+            }, 1500);
 
         };
 
