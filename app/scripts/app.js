@@ -31,11 +31,14 @@ testProjectApp.config(function ($routeProvider) {
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+<<<<<<< HEAD
        .when('/checkout', {
            templateUrl: 'views/checkout.html',
            controller: 'CheckoutCtrl',
            controllerAs: 'checkout'
        })
+=======
+>>>>>>> 8d5fef0195eb88dccdf78dfceb76259b98357331
       .when('/store', {
         templateUrl: 'views/store.html',
         controller: 'StoreCtrl',
