@@ -169,7 +169,7 @@ body {
     position: relative;
     margin: 0;
     /*background: url("http://images4.fanpop.com/image/photos/16100000/Tiger-Wallpaper-tigers-16120028-1024-768.jpg") no-repeat center center scroll;*/
-    background-image: url("app/images/volcano.jpg") no-repeat center center scroll;
+    background: url("../images/volcano.jpg") no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
