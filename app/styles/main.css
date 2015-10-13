@@ -144,6 +144,15 @@ body {
     margin: 0 auto;
 }
 
+.btn-white{
+    background-color: transparent;
+    border: 4px solid #ffffff;
+
+}
+ a.btn-white-link{
+     color: #ffffff;
+ }
+
 /*
 * This sets the padding height to 90% of the width since the padding peramter is baised off the width when it is set to a %
 *   ** With this set Currenlty can not do previous slideing animation since it makes the total screen high change rapidly
@@ -181,4 +190,20 @@ body {
     border-bottom: 0;
     margin-bottom: 0;
 
+}
+
+/*
+*  Loading Page
+*/
+#cover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top:0; left: 0;
+    background: #000;
+    z-index:9999;
+    font-size: 60px;
+    text-align: center;
+    padding-top: 200px;
+    color: #fff;
 }

@@ -36,6 +36,11 @@ testProjectApp.config(function ($routeProvider) {
            controller: 'CheckoutCtrl',
            controllerAs: 'checkout'
        })
+       .when('/landing', {
+           templateUrl: 'views/landing.html',
+           controller: 'LandingCtrl',
+           controllerAs: 'landing'
+        })
       .when('/store', {
         templateUrl: 'views/store.html',
         controller: 'StoreCtrl',
@@ -136,6 +141,25 @@ testProjectApp.config(function ($routeProvider) {
       });
   });
 
+
+testProjectApp.directive('loadingScreen', function($rootScope){
+   return{
+       restrict: 'E',
+       template: "<div ng-show='isRouteLoading' class='loading-indicator'>" +
+       "<div class='loading-indicator-body'>" +
+       "<h3 class='loading-title'>Loading...</h3>" +
+       "<div class='spinner'><rotating-plane-spinner></rotating-plane-spinner></div>" +
+       "</div>" +
+       "</div>",
+       replace: true,
+       link: function(scope, element, attrs){
+           $scope.isLoading = false;
+
+           $rootScope.$on($routChange);
+       }
+   };
+
+});
 
 /*app.filter('filterBycatogories', function () {
     return function (items, catogories) {

@@ -18,6 +18,8 @@ angular.module('testprojectApp')
             moltin.Cart.Remove(uniqueItemIdentifier);
         };
 
+        console.log(moltin);
+
 
 
 
